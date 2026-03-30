@@ -4,7 +4,7 @@ import blogRouter from './routes/blog-routes.js';
 import router from './routes/user-routes.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import https from 'https';
+// import https from 'https';
 
 dotenv.config();
 
@@ -34,11 +34,11 @@ app.listen(5000,()=>{
     console.log("listening on port 5000");
 
     // Periodically ping the backend to prevent Render's free tier from sleeping
-    setInterval(() => {
-        https.get('https://mern-blogapp-backend.onrender.com/api/health', (res) => {
-            console.log('Keep-alive ping sent. Status:', res.statusCode);
-        }).on('error', (err) => {
-            console.error('Error in keep-alive ping:', err.message);
-        });
-    }, 300000); // Ping every 5 minutes (300,000 ms)
+    // setInterval(() => {
+    //     https.get('https://mern-blogapp-backend.onrender.com/api/health', (res) => {
+    //         console.log('Keep-alive ping sent. Status:', res.statusCode);
+    //     }).on('error', (err) => {
+    //         console.error('Error in keep-alive ping:', err.message);
+    //     });
+    // }, 300000); // Ping every 5 minutes (300,000 ms)
 });
